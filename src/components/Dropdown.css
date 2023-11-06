@@ -3,22 +3,36 @@
 }
 
 /* Selected option */
-.selection {
+.border {
   border-bottom: solid;
   border-width: thin;
   border-color: lightgrey;
+}
+
+.selection {
   padding: 2px 10px;
-  min-height: 24px;
+  min-height: 26px;
+}
+
+/* Format selected options */
+.tag {
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #dbdbdb;
+  padding: 1px 8px;
+  border-radius: 10px;
 }
 
 /* Icons */
-.icon {
+.arrow {
   float: right;
 }
-.icon:hover {
-  background-color: #dbdbdb;
+.close {
+  margin-left: 5px;
 }
-
+.icon:hover {
+  background-color: lightgrey;
+}
 
 /* Options list */
 .list{
@@ -26,13 +40,17 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
 }
 
 li {
   padding: 2px 10px;
 }
-
 li:hover {
   background-color: #dbdbdb;
   padding: 2px 10px;
+}
+
+.check {
+  margin-right: 10px;
 }

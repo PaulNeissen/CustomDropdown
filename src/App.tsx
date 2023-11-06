@@ -7,6 +7,7 @@ const App = () => {
 
   const [list, setList] = useState([]);
   
+  // Careful while changing the API since we need a list of name for our component
   const url = 'https://jsonplaceholder.typicode.com/users';
 
   // Map fetched data to list of names

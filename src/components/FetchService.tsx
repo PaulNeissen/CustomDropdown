@@ -3,7 +3,7 @@ import "./FetchService.css"
 
 interface Props {
   url: string;
-  onFetch: any;
+  onFetch: (data: []) => void;
 }
 
 const FetchService = ({url, onFetch}: Props) => {
@@ -25,9 +25,11 @@ const FetchService = ({url, onFetch}: Props) => {
       });
   }, []);
 
+  // Handle loading time
   if (loading)
     return <div><i className="fa fa-spinner fa-spin fetch-icon"></i>Loading</div>;
 
+  // Display error message
   if (error) 
     return <div className="fetch-error">Error while fetching data</div>;
 
