@@ -7,7 +7,7 @@ const App = () => {
 
   const [list, setList] = useState([]);
   
-  const url = 'https://jsonplaceholder.ypicode.com/users';
+  const url = 'https://jsonplaceholder.typicode.com/users';
 
   // Map fetched data to list of names
   const onFetch = (data: any) => {

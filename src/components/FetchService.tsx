@@ -29,7 +29,7 @@ const FetchService = ({url, onFetch}: Props) => {
     return <div><i className="fa fa-spinner fa-spin fetch-icon"></i>Loading</div>;
 
   if (error) 
-    return <div className="fetch-error">Error while fetching data : {error.message}</div>;
+    return <div className="fetch-error">Error while fetching data</div>;
 
   return <></>;
   
