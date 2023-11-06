@@ -1,27 +1,20 @@
-# React + TypeScript + Vite
+# Custom Dropdown
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This component is a custom dropdown select without implementing the standard HTML `select`.
+You can try the demo [here](https://paulneissen.github.io/CustomDropdown/).
 
-Currently, two official plugins are available:
+## Set up
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project uses [Node](https://nodejs.org/en) version 20.9.0 and [npm](https://www.npmjs.com/) version 10.1.0. Make sure to download compatible versions before testing, especially `node` version 16 or higher. This project was generated with [Vite](https://vitejs.dev/) version 4.4.5. It uses [Typescript](https://www.typescriptlang.org/) version 5.0.2.
 
-## Expanding the ESLint configuration
+After downloading the source code, run `npm install` in a terminal like `git bash` to download all dependencies.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Development server
 
-- Configure the top-level `parserOptions` property like this:
+Run `npm run dev` to start your local server. It is now accessible from [http://localhost:5173/](http://localhost:5173/) in your browser (Note that the port can be different on your local env).
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Build
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Run `npm run build` to generate deployable source code.
+In order to publish on github pages, you need to make a copy of `docs/index.html` and name it `docs/404.html`.
+
