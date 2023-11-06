@@ -12,10 +12,10 @@
 }
 
 /* Icons */
-i {
+.icon {
   float: right;
 }
-i:hover {
+.icon:hover {
   background-color: #dbdbdb;
 }
 

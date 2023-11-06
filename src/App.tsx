@@ -1,14 +1,25 @@
 import './App.css'
-import Dropdown from './components/dropdown';
+import Dropdown from './components/Dropdown';
+import FetchService from './components/FetchService';
+import { useState } from 'react';
 
 const App = () => {
-  const list = ['Option 1', 'Option 2', 'Option 3'];
+
+  const [list, setList] = useState([]);
+  
+  const url = 'https://jsonplaceholder.ypicode.com/users';
+
+  // Map fetched data to list of names
+  const onFetch = (data: any) => {
+    setList(data.map((user: any) => user.name));
+  }
 
   return (
-    <div>
+    <>
       <h2>Custom Dropdown</h2>
       <Dropdown list={list} />
-    </div>
+      <FetchService url={url} onFetch={onFetch}/>
+    </>
   );
 };
 

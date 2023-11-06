@@ -17,20 +17,17 @@ const Dropdown = ({ list }: Props) => {
 
   // Get the dropdown component selection
   const [selectedOption, setSelectedOption] = useState("");
-  const selectOption = (option: string) => {
-    setSelectedOption(option);
-  };
   
   return (
     <div className="container">
       <div className="selection" onClick={toggleDropdown}>
         {selectedOption}
-        <i className="fa fa-caret-down"></i>
+        <i className="fa fa-caret-down icon"></i>
       </div>
       {isOpen && (
         <ul className="list container">
           {list.map((option, index) => (
-            <li key={option + index} onClick={() => selectOption(option)}>
+            <li key={option + index} onClick={() => setSelectedOption(option)}>
               {option}
             </li>
           ))}
