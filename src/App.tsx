@@ -6,7 +6,7 @@ import { useState } from 'react';
 const App = () => {
 
   const [list, setList] = useState([]);
-  
+
   // Careful while changing the API since we need a list of name for our component
   const url = 'https://jsonplaceholder.typicode.com/users';
 

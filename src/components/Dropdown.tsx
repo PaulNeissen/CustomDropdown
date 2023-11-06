@@ -28,7 +28,22 @@ const Dropdown = ({ list }: Props) => {
 
     // Prevent the click on the close icon to toggle the dropdown
     event.stopPropagation();
-  }
+  };
+
+  // Pagination
+  const [pageSize, setPageSize] = useState(5); // Number of element displayed in one page
+  const pageSizeOptions = [5, 10, 20]; // Possible page size
+  const [startIndex, setStartIndex] = useState(0); // Index of the first element displayed in current page
+
+  // Display the next or previous elements
+  const changePage = (next: boolean) => {
+    if (next && startIndex < list.length - pageSize) {
+      setStartIndex(startIndex + pageSize);
+    } else if (!next) { // Don't change page if it's already the end of the array
+      setStartIndex(Math.max(0, startIndex - pageSize));
+    }
+    console.log(startIndex);
+  };
 
   return (
     <div className="container">
@@ -38,25 +53,46 @@ const Dropdown = ({ list }: Props) => {
         {selectedOption.map((option, index) => (
             <div key={option + index} className="tag">
               {option}
-              <i className="fa fa-close close icon" onClick={(event) => {onSelectOption(option, event)}}></i>
+              <i className="fa fa-close close icon" onClick={(event) => onSelectOption(option, event)}></i>
             </div>
         ))}
-        <i className="fa fa-caret-down arrow icon"></i>
+        <i className={isOpen ? "fa fa-caret-up arrow icon" : "fa fa-caret-down arrow icon"}></i>
       </div>
 
       {/* DROPDOWN */}
-      {/* ternary condition in JSX */}
+      {/* Ternary condition trick in JSX */}
       {isOpen && (
         <ul className="list container">
-          {list.map((option, index) => (
-            <li className="border" key={option + index} onClick={(event) => {onSelectOption(option, event)}}>
-              <input className="check" type="checkbox" checked={selectedOption.includes(option)} onChange={() => false}/> {/* onChange is empty because I want a readonly checkbox*/}
-              {option}
-            </li>
+
+          {/* Iterate over the dropdown options */}
+          {/* Select options to display depending on pageSize and current page*/}
+          {list.slice(startIndex, startIndex + pageSize) 
+            .map((option, index) => (
+              <li className="border selectable-option" key={option + index} onClick={(event) => onSelectOption(option, event)}>
+                <input className="check" type="checkbox" checked={selectedOption.includes(option)} onChange={() => false}/> {/* onChange is empty because I want a readonly checkbox*/}
+                {option}
+              </li>
           ))}
+
+          {/* Pagniation options */}
+          <li className="pagination">
+            Items per page : 
+            {pageSizeOptions.map(size => (
+              <div key={size} className="page-size" onClick={() => {
+                  setPageSize(size);
+                  setStartIndex(0); {/* Reset to first page */}
+                }}
+              >{size}</div>
+            ))}
+            <i className="fa fa-arrow-right arrow icon" onClick={() => changePage(true)}/>
+            <i className="fa fa-arrow-left arrow icon" onClick={() => changePage(false)}/>
+            <div className="page-indicator">
+              {startIndex + 1} - {Math.min(startIndex + pageSize, list.length)} of {list.length} {/* Display current pagination */}
+            </div> 
+          </li>
+
         </ul>
       )}
-
     </div>
   );
 };
