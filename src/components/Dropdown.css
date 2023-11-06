@@ -1,0 +1,38 @@
+.container {
+  width : 400px;
+}
+
+/* Selected option */
+.selection {
+  border-bottom: solid;
+  border-width: thin;
+  border-color: lightgrey;
+  padding: 2px 10px;
+  min-height: 24px;
+}
+
+/* Icons */
+i {
+  float: right;
+}
+i:hover {
+  background-color: #dbdbdb;
+}
+
+
+/* Options list */
+.list{
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 2px 10px;
+}
+
+li:hover {
+  background-color: #dbdbdb;
+  padding: 2px 10px;
+}
